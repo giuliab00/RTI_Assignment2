@@ -131,8 +131,8 @@ def main():
 		#Publishing target coordinate (Node C)
 		tgt(x,y)
 		
-		pose.pose.position.x = x;
-		pose.pose.position.y = y;
+		pose.pose.position.x = x
+		pose.pose.position.y = y
 		
 		#Create object Planning goal and assign the goal
 		goal = assignment_2_2022.msg.PlanningGoal(target_pose = pose)
