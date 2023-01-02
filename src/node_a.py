@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+#Useful import
 import rospy
 import actionlib
 import actionlib.msg
@@ -12,18 +13,22 @@ import select
 import time
 from ass2.srv import target, targetResponse
 
-#costruttore
+#Initialize constructors
 pose_ = Pose()
 twist_= Twist()
 
+
 def coordinate():
-
-#I want to insert from terminal the coordinates for the action()
-
+	"""
+	Function to take coordinate from input
+	
+	Args: None
+	"""
 	while True:
 		try:
 			x=eval(input("x position to reach:"))
 			break
+			
 		except (SyntaxError, ValueError, NameError):
 			print("Oops!  That was no valid number.  Try again...")
 	while True:
@@ -37,6 +42,11 @@ def coordinate():
 
 
 def clbk_odom(msg):
+	"""
+	Callback function to publish position and velocity of the robot
+	
+    	Args: msg
+	"""
 	global pub_info
 	
 	x_=msg.pose.pose.position.x
@@ -54,52 +64,71 @@ def clbk_odom(msg):
 	if not rospy.is_shutdown():
 	         pub_info.publish(msg_info)
   
-  
+#Node C  
 def tgt(x,y):
+	"""
+    	Function for publishing target coordinates
+    	
+    	Args: x
+    	      y
+	"""
 	global pub_target
-	  	
+		  	
 	target_info = Point()
 	target_info.x = x
 	target_info.y = y
 	pub_target.publish(target_info)
 
+#Node B
 def get_info_goal(req):
-	#node b
+	"""
+	Function for service node B
+    	
+    	Args: request
+	"""	
 	global reach_t, canc_t, service
 	
+	#Response of target.srv
 	return targetResponse(reach_t,canc_t)
   
 def main():
 	
+	#Defining global variable
 	global pub_info, reach_t, canc_t, pub_target
 	
 	#Initialize pose object
 	pose = PoseStamped()
+	
+	#Initialize counters (Node B)
 	reach_t = 0
 	canc_t = 0
 	
 	#Init node
 	rospy.init_node('node_a')
 		
-	#create a new client
+	#Create a new client
 	client = actionlib.SimpleActionClient('/reaching_goal', assignment_2_2022.msg.PlanningAction)
 	
-	#we need to publish
+	#Publish (Node A)
 	pub_info = rospy.Publisher('/bot_info', Info, queue_size=1)
+	#Publish (Node C)
 	pub_target = rospy.Publisher('/tgt', Point, queue_size=1)
 	
-	#make sub to \odom
+	#Make sub to \odom
 	sub_odom = rospy.Subscriber('/odom', Odometry, clbk_odom)
 	
+	#Service definition
 	service = rospy.Service("goal_info",target, get_info_goal)
 	
 	#Wait for the server ready
 	client.wait_for_server()
 	
 	while True:
+		
 		#Set the goal coordinate to reach from input console
 		x,y =coordinate()
 		
+		#Publishing target coordinate (Node C)
 		tgt(x,y)
 		
 		pose.pose.position.x = x;
@@ -113,26 +142,31 @@ def main():
 			
 		print("Do you want to cancel the goal? y/n")
 			
-		#cancelling the goal
 		while True:
 			
+			#Taking keyboard input 
 			input = select.select([sys.stdin], [], [], 1)[0]
 			
 			if input:
-				reset = sys.stdin.readline().rstrip()                 
+				
+				reset = sys.stdin.readline().rstrip()
+				               
 				if reset=="y":
+					#Cancel goal
 					client.cancel_all_goals()
-					#the state is 2 corresponding to preempted therefor cancelled
+					#Take time to process
 					time.sleep(1)
+					#Check the state
 					state = client.get_state()
+					#State 2 corresponds to preempted
 					if state == 2:
 						canc_t +=1
 					break
 					
 			else:
+				#Check the state
 				state = client.get_state()
-				#print(state)
-				#the goal is reached when state equals to 3	
+				#State 3 corresponds to reached goal
 				if (state == 3 ):
 					reach_t +=1
 					break

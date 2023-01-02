@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+#Useful import
 import rospy
 import math
 import actionlib
@@ -11,9 +12,16 @@ import assignment_2_2022.msg
 from ass2.msg import Info
 from nav_msgs.msg import Odometry
 
+#Global useful variable
 global avg_vx, avg_vy 
 
+
 def clbk_info(msg):
+	"""
+	Callback function to calculate distance from the target and average velocities
+	
+    	Args: msg	
+	"""
 	global rx, ry, avg_vx, avg_vy, sample, rate, dist
 	
 	dist = math.sqrt( pow((rx - msg.x ),2) + pow((ry - msg.y),2))
@@ -23,14 +31,21 @@ def clbk_info(msg):
 		
 	
 def clbk_tgt(msg):
+	"""
+	Callback function to obtain target info
+	
+    	Args: msg
+	"""
 	global rx, ry
 	
 	rx = msg.x
 	ry = msg.y
 	
 def main():
+
 	global rx, ry, rate, sample, avg_vx, avg_vy, dist
 	
+	#Initializing useful variables
 	sample= 0
 	rx=0
 	ry=0
@@ -41,10 +56,11 @@ def main():
 	#Init node
 	rospy.init_node('node_c')
 	
+	#Setting rate of publishing choosen in launch file
 	freq= rospy.get_param("freq_c")
 	rate= rospy.Rate(freq)
 	
-	#make sub
+	#Make subscription
 	sub_info = rospy.Subscriber('/bot_info', Info, clbk_info)
 	sub_tgt = rospy.Subscriber('/tgt', Point, clbk_tgt)
 	
