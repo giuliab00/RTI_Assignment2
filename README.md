@@ -26,7 +26,6 @@ Additional Requirements
 
 ## Pseudocode
 ```python
-```python
 Initialize constructors
 
 def coordinate():
