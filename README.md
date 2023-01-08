@@ -43,6 +43,7 @@ Having the simulation and three nodes running looks like this:
 
 Additional Requirements
 ----------------------
+It is then asked to write the pseudocode of Node A in order to explain the reasoning behind it.
 
 ## Pseudocode
 ```python
