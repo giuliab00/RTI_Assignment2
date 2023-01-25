@@ -67,7 +67,7 @@ def main():
 	while True:
 		print("Average velocity x: ", avg_vx)
 		print("Average velocity y: ", avg_vy)
-		print("Dictance from target: ", dist)
+		print("Distance from target: ", dist)
 		rate.sleep()
 	
 
