@@ -8,6 +8,13 @@ This assignment required to create a package where implement three different nod
 
 It is needed to implement a launch file in order to run the environment of the simulation and set parameter.
 
+How to download
+----------------------
+
+In order to run the solution it is necessary to download two different packages into the src folder of the ros workspace:
+- https://github.com/CarmineD8/assignment_2_2022 which set the environment;
+- https://github.com/giuliab00/RTI_Assignment2 and save it in a folder named "ass2"
+
 How to run the solution
 ----------------------
 
@@ -41,11 +48,12 @@ Having the simulation and three nodes running looks like this:
 
 ![My Image](my-image.jpg)
 
-Additional Requirements
+Additional requirements
 ----------------------
-It is then asked to write the pseudocode of Node A in order to explain the reasoning behind it.
+## NODE A
+It is now analyzed the functioning of the Node A by pseudocode, which is also relevant for the other two nodes since their implementation depends on this one.
 
-## Pseudocode
+# Pseudocode
 ```python
 Initialize constructors
 
