@@ -30,7 +30,9 @@ Then to run the environment and node A:
 roslaunch ass2 ass2.launch
 ```
 
-After this command is given it is possible to give directly the coordinates to reach.
+After this command is given it is possible to give directly the coordinates to reach. 
+
+(It is displaied to insert the x variable, but the first time it could happen not to be visible since it appears between the lines of the environment setting, although pressing ``` Enter ``` the command is shown again)
 
 In a new terminal is possible to see the number of target reached and canceled by launching this command:
 
