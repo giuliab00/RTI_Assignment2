@@ -1,10 +1,10 @@
 #! /usr/bin/env python3
 """
-..module:: node_a
+.. module:: node_a
     :platform: Unix
     :synopsis: Python principle module for second assignment of RTI
     
-..moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com
+.. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com
 
 This nodes do a lot of things 
  
