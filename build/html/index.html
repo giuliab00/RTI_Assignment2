@@ -48,7 +48,13 @@
 <li><a class="reference internal" href="#rti-assignment2-documentation">RTI_Assignment2 documentation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#node-a-module">Node A module</a></li>
+<li><a class="reference internal" href="#module-src.node_a">Node A module</a><ul>
+<li><a class="reference internal" href="#src.node_a.clbk_odom"><code class="docutils literal notranslate"><span class="pre">clbk_odom()</span></code></a></li>
+<li><a class="reference internal" href="#src.node_a.coordinate"><code class="docutils literal notranslate"><span class="pre">coordinate()</span></code></a></li>
+<li><a class="reference internal" href="#src.node_a.get_info_goal"><code class="docutils literal notranslate"><span class="pre">get_info_goal()</span></code></a></li>
+<li><a class="reference internal" href="#src.node_a.tgt"><code class="docutils literal notranslate"><span class="pre">tgt()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
         </div>
@@ -92,15 +98,40 @@
 <p>This is the documentation of the second assignment of research track I</p>
 </div>
 </div>
-<div class="section" id="node-a-module">
-<h1>Node A module<a class="headerlink" href="#node-a-module" title="Permalink to this heading"></a></h1>
+<div class="section" id="module-src.node_a">
+<span id="node-a-module"></span><h1>Node A module<a class="headerlink" href="#module-src.node_a" title="Permalink to this heading"></a></h1>
+<span class="target" id="module-node_a"></span><p>This nodes do a lot of things</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_a.clbk_odom">
+<span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">clbk_odom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#clbk_odom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.clbk_odom" title="Permalink to this definition"></a></dt>
+<dd><p>Callback function to publish position and velocity of the robot</p>
+<p>Args: msg</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_a.coordinate">
+<span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">coordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#coordinate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.coordinate" title="Permalink to this definition"></a></dt>
+<dd><p>Function to take coordinate from input</p>
+<p>Args: None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_a.get_info_goal">
+<span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">get_info_goal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#get_info_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.get_info_goal" title="Permalink to this definition"></a></dt>
+<dd><p>Function for service node B</p>
+<p>Args: request</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_a.tgt">
+<span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">tgt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#tgt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.tgt" title="Permalink to this definition"></a></dt>
+<dd><p>Function for publishing target coordinates</p>
 <dl class="simple">
-<dt>..automodule:: src.node_a</dt><dd><dl class="field-list simple">
-<dt class="field-odd">members</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Args: x</dt><dd><p>y</p>
 </dd>
 </dl>
+</dd></dl>
+
 </div>
 
 

@@ -27,7 +27,7 @@ This is the documentation of the second assignment of research track I
 Node A module
 ==============
 
-..automodule:: src.node_a
+.. automodule:: src.node_a
     :members:
 
 
