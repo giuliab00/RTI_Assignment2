@@ -1,5 +1,14 @@
 #! /usr/bin/env python3
+"""
+..module:: node_a
+    :platform: Unix
+    :synopsis: Python principle module for second assignment of RTI
+    
+..moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com
 
+This nodes do a lot of things 
+ 
+"""
 #Useful import
 import rospy
 import actionlib
