@@ -18,3 +18,19 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+RTI_Assignment2 documentation
+******************************
+
+This is the documentation of the second assignment of research track I
+
+Node A module
+==============
+..automodule:: src.node_a
+    :members:
+
+Node B module
+==============
+
+Node C module
+==============
