@@ -31,4 +31,16 @@ Node A module
     :members:
 
 
+Node B module
+==============
+
+.. automodule:: src.node_b
+    :members:
+
+Node C module
+==============
+
+.. automodule:: src.node_c
+    :members:
+
 
