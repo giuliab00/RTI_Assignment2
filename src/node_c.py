@@ -1,5 +1,15 @@
 #! /usr/bin/env python3
+"""
+.. module:: node_c
+    :platform: Unix
+    :synopsis: Python  module for second assignment of RTI
+    
+.. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com
 
+node
+
+ 
+"""
 #Useful import
 import rospy
 import math

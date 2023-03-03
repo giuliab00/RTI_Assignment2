@@ -6,7 +6,10 @@
     
 .. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com
 
-This nodes do a lot of things 
+This is the main node of all the project. 
+It allows to set input goal coordinates.
+
+
  
 """
 #Useful import
