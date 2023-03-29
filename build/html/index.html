@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to RT2_ass1’s documentation! &mdash; RT2_ass1 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -47,9 +48,22 @@
 <li><a class="reference internal" href="#rti-assignment2-documentation">RTI_Assignment2 documentation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#node-a-module">Node A module</a></li>
-<li><a class="reference internal" href="#node-b-module">Node B module</a></li>
-<li><a class="reference internal" href="#node-c-module">Node C module</a></li>
+<li><a class="reference internal" href="#module-src.node_a">Node A module</a><ul>
+<li><a class="reference internal" href="#src.node_a.clbk_odom"><code class="docutils literal notranslate"><span class="pre">clbk_odom()</span></code></a></li>
+<li><a class="reference internal" href="#src.node_a.coordinate"><code class="docutils literal notranslate"><span class="pre">coordinate()</span></code></a></li>
+<li><a class="reference internal" href="#src.node_a.get_info_goal"><code class="docutils literal notranslate"><span class="pre">get_info_goal()</span></code></a></li>
+<li><a class="reference internal" href="#src.node_a.tgt"><code class="docutils literal notranslate"><span class="pre">tgt()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.node_b">Node B module</a><ul>
+<li><a class="reference internal" href="#src.node_b.getInfoGoal"><code class="docutils literal notranslate"><span class="pre">getInfoGoal()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-src.node_c">Node C module</a><ul>
+<li><a class="reference internal" href="#src.node_c.clbk_info"><code class="docutils literal notranslate"><span class="pre">clbk_info()</span></code></a></li>
+<li><a class="reference internal" href="#src.node_c.clbk_tgt"><code class="docutils literal notranslate"><span class="pre">clbk_tgt()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
         </div>
@@ -76,32 +90,87 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-rt2-ass1-s-documentation">
-<h1>Welcome to RT2_ass1’s documentation!<a class="headerlink" href="#welcome-to-rt2-ass1-s-documentation" title="Permalink to this headline"></a></h1>
+  <div class="section" id="welcome-to-rt2-ass1-s-documentation">
+<h1>Welcome to RT2_ass1’s documentation!<a class="headerlink" href="#welcome-to-rt2-ass1-s-documentation" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
-</section>
-<section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-<section id="rti-assignment2-documentation">
-<h2>RTI_Assignment2 documentation<a class="headerlink" href="#rti-assignment2-documentation" title="Permalink to this headline"></a></h2>
+<div class="section" id="rti-assignment2-documentation">
+<h2>RTI_Assignment2 documentation<a class="headerlink" href="#rti-assignment2-documentation" title="Permalink to this heading"></a></h2>
 <p>This is the documentation of the second assignment of research track I</p>
-</section>
-</section>
-<section id="node-a-module">
-<h1>Node A module<a class="headerlink" href="#node-a-module" title="Permalink to this headline"></a></h1>
-</section>
-<section id="node-b-module">
-<h1>Node B module<a class="headerlink" href="#node-b-module" title="Permalink to this headline"></a></h1>
-</section>
-<section id="node-c-module">
-<h1>Node C module<a class="headerlink" href="#node-c-module" title="Permalink to this headline"></a></h1>
-</section>
+</div>
+</div>
+<div class="section" id="module-src.node_a">
+<span id="node-a-module"></span><h1>Node A module<a class="headerlink" href="#module-src.node_a" title="Permalink to this heading"></a></h1>
+<span class="target" id="module-node_a"></span><p>This is the main node of all the project.
+It allows to set input goal coordinates.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_a.clbk_odom">
+<span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">clbk_odom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#clbk_odom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.clbk_odom" title="Permalink to this definition"></a></dt>
+<dd><p>Callback function to publish position and velocity of the robot</p>
+<p>Args: msg</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_a.coordinate">
+<span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">coordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#coordinate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.coordinate" title="Permalink to this definition"></a></dt>
+<dd><p>Function to take coordinate from input</p>
+<p>Args: None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_a.get_info_goal">
+<span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">get_info_goal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#get_info_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.get_info_goal" title="Permalink to this definition"></a></dt>
+<dd><p>Function for service node B</p>
+<p>Args: request</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_a.tgt">
+<span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">tgt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#tgt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.tgt" title="Permalink to this definition"></a></dt>
+<dd><p>Function for publishing target coordinates</p>
+<dl class="simple">
+<dt>Args: x</dt><dd><p>y</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-src.node_b">
+<span id="node-b-module"></span><h1>Node B module<a class="headerlink" href="#module-src.node_b" title="Permalink to this heading"></a></h1>
+<span class="target" id="module-node_b"></span><p>Service node</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_b.getInfoGoal">
+<span class="sig-prename descclassname"><span class="pre">src.node_b.</span></span><span class="sig-name descname"><span class="pre">getInfoGoal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_b.html#getInfoGoal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_b.getInfoGoal" title="Permalink to this definition"></a></dt>
+<dd><p>Function to obtain and</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-src.node_c">
+<span id="node-c-module"></span><h1>Node C module<a class="headerlink" href="#module-src.node_c" title="Permalink to this heading"></a></h1>
+<span class="target" id="module-node_c"></span><p>node</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_c.clbk_info">
+<span class="sig-prename descclassname"><span class="pre">src.node_c.</span></span><span class="sig-name descname"><span class="pre">clbk_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_c.html#clbk_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_c.clbk_info" title="Permalink to this definition"></a></dt>
+<dd><p>Callback function to calculate distance from the target and average velocities</p>
+<p>Args: msg</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.node_c.clbk_tgt">
+<span class="sig-prename descclassname"><span class="pre">src.node_c.</span></span><span class="sig-name descname"><span class="pre">clbk_tgt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_c.html#clbk_tgt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_c.clbk_tgt" title="Permalink to this definition"></a></dt>
+<dd><p>Callback function to obtain target info</p>
+<p>Args: msg</p>
+</dd></dl>
+
+</div>
 
 
            </div>
