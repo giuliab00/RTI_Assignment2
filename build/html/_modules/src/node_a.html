@@ -76,11 +76,23 @@
 <span class="sd">    </span>
 <span class="sd">.. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com</span>
 
-<span class="sd">This is the main node of all the project. </span>
-<span class="sd">It allows to set input goal coordinates.</span>
+<span class="sd">This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : &lt;https://github.com/CarmineD8/assignment_2_2022&gt;.</span>
+<span class="sd">The node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it. All the position are tracked. </span>
+<span class="sd">Node A additionally publishes robot&#39;s velocity and position.</span>
 
+<span class="sd">Subscriber:</span>
+<span class="sd">	/odom</span>
+<span class="sd">	</span>
+<span class="sd">Publisher:</span>
+<span class="sd">	/tgt</span>
+<span class="sd">	/bot_info</span>
+<span class="sd">	</span>
+<span class="sd">Server:</span>
+<span class="sd">	ass2/goal</span>
+<span class="sd">	</span>
+<span class="sd">Action Client:</span>
+<span class="sd">	/reaching_goal</span>
 
-<span class="sd"> </span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1">#Useful import</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
@@ -102,7 +114,7 @@
 
 <div class="viewcode-block" id="coordinate"><a class="viewcode-back" href="../../index.html#src.node_a.coordinate">[docs]</a><span class="k">def</span> <span class="nf">coordinate</span><span class="p">():</span>
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Function to take coordinate from input</span>
+<span class="sd">	Function to insert coordinates x and y from input</span>
 <span class="sd">	</span>
 <span class="sd">	Args: None</span>
 <span class="sd">	&quot;&quot;&quot;</span>
@@ -127,7 +139,7 @@
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">	Callback function to publish position and velocity of the robot</span>
 <span class="sd">	</span>
-<span class="sd">    	Args: msg</span>
+<span class="sd">    	Args: msg Message</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="k">global</span> <span class="n">pub_info</span>
 	
@@ -149,10 +161,9 @@
 <span class="c1">#Node C  </span>
 <div class="viewcode-block" id="tgt"><a class="viewcode-back" href="../../index.html#src.node_a.tgt">[docs]</a><span class="k">def</span> <span class="nf">tgt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    	Function for publishing target coordinates</span>
+<span class="sd">    	Function aimed to publish target coordinates</span>
 <span class="sd">    	</span>
-<span class="sd">    	Args: x</span>
-<span class="sd">    	      y</span>
+<span class="sd">    	Args: x, y Integers</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="k">global</span> <span class="n">pub_target</span>
 		  	
@@ -164,7 +175,7 @@
 <span class="c1">#Node B</span>
 <div class="viewcode-block" id="get_info_goal"><a class="viewcode-back" href="../../index.html#src.node_a.get_info_goal">[docs]</a><span class="k">def</span> <span class="nf">get_info_goal</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Function for service node B</span>
+<span class="sd">	Function which sends as response to the service Node the number of goal reached and cancelled</span>
 <span class="sd">    	</span>
 <span class="sd">    	Args: request</span>
 <span class="sd">	&quot;&quot;&quot;</span>	
@@ -173,7 +184,15 @@
 	<span class="c1">#Response of target.srv</span>
 	<span class="k">return</span> <span class="n">targetResponse</span><span class="p">(</span><span class="n">reach_t</span><span class="p">,</span><span class="n">canc_t</span><span class="p">)</span></div>
   
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../index.html#src.node_a.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Main function to:</span>
+<span class="sd">		- Initialize the node; </span>
+<span class="sd">		- Create a new client; </span>
+<span class="sd">		- Publishe the target and the information about the robot position;</span>
+<span class="sd">		- Subscribes to /odom;</span>
+<span class="sd">		- Define the service goal info.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
 	
 	<span class="c1">#Defining global variable</span>
 	<span class="k">global</span> <span class="n">pub_info</span><span class="p">,</span> <span class="n">reach_t</span><span class="p">,</span> <span class="n">canc_t</span><span class="p">,</span> <span class="n">pub_target</span>
@@ -193,6 +212,7 @@
 	
 	<span class="c1">#Publish (Node A)</span>
 	<span class="n">pub_info</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/bot_info&#39;</span><span class="p">,</span> <span class="n">Info</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+	
 	<span class="c1">#Publish (Node C)</span>
 	<span class="n">pub_target</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/tgt&#39;</span><span class="p">,</span> <span class="n">Point</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 	
@@ -254,7 +274,7 @@
 					<span class="k">break</span>
 					
 		<span class="c1">#Wait for the result</span>
-		<span class="n">client</span><span class="o">.</span><span class="n">wait_for_result</span><span class="p">()</span>
+		<span class="n">client</span><span class="o">.</span><span class="n">wait_for_result</span><span class="p">()</span></div>
 	  
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 	<span class="n">main</span><span class="p">()</span>

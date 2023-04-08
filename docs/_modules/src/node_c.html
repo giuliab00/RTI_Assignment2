@@ -76,8 +76,15 @@
 <span class="sd">    </span>
 <span class="sd">.. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com</span>
 
-<span class="sd">node</span>
+<span class="sd">Node C  subscribes to the message published by node A updating the robot velocity and the target&#39;s distance. </span>
+<span class="sd">All the informations are then printed with a frequency set in the ros parrameter (in the launch file) as freq_c</span>
 
+<span class="sd">Subscriber:</span>
+<span class="sd">	/bot_info</span>
+<span class="sd">	/tgt</span>
+<span class="sd">	</span>
+<span class="sd">Ros parameter:</span>
+<span class="sd">	freq_c</span>
 <span class="sd"> </span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1">#Useful import</span>
@@ -100,7 +107,7 @@
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">	Callback function to calculate distance from the target and average velocities</span>
 <span class="sd">	</span>
-<span class="sd">    	Args: msg	</span>
+<span class="sd">    	Args: msg Message</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="k">global</span> <span class="n">rx</span><span class="p">,</span> <span class="n">ry</span><span class="p">,</span> <span class="n">avg_vx</span><span class="p">,</span> <span class="n">avg_vy</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">dist</span>
 	
@@ -114,14 +121,21 @@
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">	Callback function to obtain target info</span>
 <span class="sd">	</span>
-<span class="sd">    	Args: msg</span>
+<span class="sd">    	Args: msg Message</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="k">global</span> <span class="n">rx</span><span class="p">,</span> <span class="n">ry</span>
 	
 	<span class="n">rx</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">x</span>
 	<span class="n">ry</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">y</span></div>
 	
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../../index.html#src.node_c.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Main function to: </span>
+<span class="sd">		-Initialize the node;</span>
+<span class="sd">		-Set publishing rate;</span>
+<span class="sd">		-Subscribes to the robot information and target</span>
+<span class="sd">		-Print all the informations</span>
+<span class="sd">	&quot;&quot;&quot;</span>
 
 	<span class="k">global</span> <span class="n">rx</span><span class="p">,</span> <span class="n">ry</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">sample</span><span class="p">,</span> <span class="n">avg_vx</span><span class="p">,</span> <span class="n">avg_vy</span><span class="p">,</span> <span class="n">dist</span>
 	
@@ -148,7 +162,7 @@
 		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average velocity x: &quot;</span><span class="p">,</span> <span class="n">avg_vx</span><span class="p">)</span>
 		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Average velocity y: &quot;</span><span class="p">,</span> <span class="n">avg_vy</span><span class="p">)</span>
 		<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distance from target: &quot;</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
-		<span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+		<span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span></div>
 	
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>

@@ -76,9 +76,7 @@
 <span class="sd">    </span>
 <span class="sd">.. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com</span>
 
-<span class="sd">Service node</span>
-
-
+<span class="sd">Node B is a service node, which sends a request to the Goal Service (of Node A) and prints its response.</span>
 <span class="sd"> </span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="c1">#Useful import</span>
@@ -95,7 +93,7 @@
 
 <div class="viewcode-block" id="getInfoGoal"><a class="viewcode-back" href="../../index.html#src.node_b.getInfoGoal">[docs]</a><span class="k">def</span> <span class="nf">getInfoGoal</span><span class="p">():</span>
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Function to obtain and </span>
+<span class="sd">	Function to connect to target service, save its response and print them </span>
 <span class="sd">	&quot;&quot;&quot;</span>
 	<span class="c1">#Wait until the service is available</span>
 	<span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s2">&quot;goal_info&quot;</span><span class="p">)</span>
