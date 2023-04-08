@@ -7,8 +7,11 @@
 .. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com
 
 This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : https://github.com/CarmineD8/assignment_2_2022.
+
 This node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it. 
+
 All the positions inserted  are then tracked as reached or cancelled. 
+
 Node A additionally publishes robot's velocity and position.
 
 Subscriber:
@@ -46,7 +49,7 @@ twist_= Twist()
 
 def coordinate():
 	"""
-	Function to insert coordinates x and y from input
+	Function to insert coordinates x and y from input.
 	
 	Args: None
 	"""
@@ -69,7 +72,7 @@ def coordinate():
 
 def clbk_odom(msg):
 	"""
-	Callback function to publish position and velocity of the robot
+	Callback function to publish position and velocity of the robot.
 	
     	Args: msg Message
 	"""
@@ -93,7 +96,7 @@ def clbk_odom(msg):
 #Node C  
 def tgt(x,y):
 	"""
-    	Function aimed to publish target coordinates
+    	Function aimed to publish target coordinates.
     	
     	Args: x, y Integers
 	"""
@@ -107,7 +110,7 @@ def tgt(x,y):
 #Node B
 def get_info_goal(req):
 	"""
-	Function which sends as response to the service Node the number of goal reached and cancelled
+	Function which sends as response to the service Node the number of goal reached and cancelled.
     	
     	Args: request
 	"""	

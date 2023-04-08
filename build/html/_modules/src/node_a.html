@@ -77,8 +77,11 @@
 <span class="sd">.. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com</span>
 
 <span class="sd">This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : https://github.com/CarmineD8/assignment_2_2022.</span>
+
 <span class="sd">This node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it. </span>
+
 <span class="sd">All the positions inserted  are then tracked as reached or cancelled. </span>
+
 <span class="sd">Node A additionally publishes robot&#39;s velocity and position.</span>
 
 <span class="sd">Subscriber:</span>
@@ -116,7 +119,7 @@
 
 <div class="viewcode-block" id="coordinate"><a class="viewcode-back" href="../../index.html#src.node_a.coordinate">[docs]</a><span class="k">def</span> <span class="nf">coordinate</span><span class="p">():</span>
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Function to insert coordinates x and y from input</span>
+<span class="sd">	Function to insert coordinates x and y from input.</span>
 <span class="sd">	</span>
 <span class="sd">	Args: None</span>
 <span class="sd">	&quot;&quot;&quot;</span>
@@ -139,7 +142,7 @@
 
 <div class="viewcode-block" id="clbk_odom"><a class="viewcode-back" href="../../index.html#src.node_a.clbk_odom">[docs]</a><span class="k">def</span> <span class="nf">clbk_odom</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Callback function to publish position and velocity of the robot</span>
+<span class="sd">	Callback function to publish position and velocity of the robot.</span>
 <span class="sd">	</span>
 <span class="sd">    	Args: msg Message</span>
 <span class="sd">	&quot;&quot;&quot;</span>
@@ -163,7 +166,7 @@
 <span class="c1">#Node C  </span>
 <div class="viewcode-block" id="tgt"><a class="viewcode-back" href="../../index.html#src.node_a.tgt">[docs]</a><span class="k">def</span> <span class="nf">tgt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    	Function aimed to publish target coordinates</span>
+<span class="sd">    	Function aimed to publish target coordinates.</span>
 <span class="sd">    	</span>
 <span class="sd">    	Args: x, y Integers</span>
 <span class="sd">	&quot;&quot;&quot;</span>
@@ -177,7 +180,7 @@
 <span class="c1">#Node B</span>
 <div class="viewcode-block" id="get_info_goal"><a class="viewcode-back" href="../../index.html#src.node_a.get_info_goal">[docs]</a><span class="k">def</span> <span class="nf">get_info_goal</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
 <span class="w">	</span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Function which sends as response to the service Node the number of goal reached and cancelled</span>
+<span class="sd">	Function which sends as response to the service Node the number of goal reached and cancelled.</span>
 <span class="sd">    	</span>
 <span class="sd">    	Args: request</span>
 <span class="sd">	&quot;&quot;&quot;</span>	

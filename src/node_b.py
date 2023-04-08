@@ -23,7 +23,9 @@ from nav_msgs.msg import Odometry
 
 def getInfoGoal():
 	"""
-	Function to connect to target service, save its response and print them 
+	Function to connect to target service, save its response and print them.
+	
+	Args: None 
 	"""
 	#Wait until the service is available
 	rospy.wait_for_service("goal_info")

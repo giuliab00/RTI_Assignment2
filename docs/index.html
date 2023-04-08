@@ -111,10 +111,10 @@
 </div>
 <div class="section" id="module-src.node_a">
 <span id="node-a-module"></span><h1>Node A module<a class="headerlink" href="#module-src.node_a" title="Permalink to this heading"></a></h1>
-<span class="target" id="module-node_a"></span><p>This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : <a class="reference external" href="https://github.com/CarmineD8/assignment_2_2022">https://github.com/CarmineD8/assignment_2_2022</a>.
-This node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it.
-All the positions inserted  are then tracked as reached or cancelled.
-Node A additionally publishes robot’s velocity and position.</p>
+<span class="target" id="module-node_a"></span><p>This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : <a class="reference external" href="https://github.com/CarmineD8/assignment_2_2022">https://github.com/CarmineD8/assignment_2_2022</a>.</p>
+<p>This node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it.</p>
+<p>All the positions inserted  are then tracked as reached or cancelled.</p>
+<p>Node A additionally publishes robot’s velocity and position.</p>
 <dl>
 <dt>Subscriber:</dt><dd><p>/odom</p>
 </dd>
@@ -129,21 +129,21 @@ Node A additionally publishes robot’s velocity and position.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.node_a.clbk_odom">
 <span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">clbk_odom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#clbk_odom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.clbk_odom" title="Permalink to this definition"></a></dt>
-<dd><p>Callback function to publish position and velocity of the robot</p>
+<dd><p>Callback function to publish position and velocity of the robot.</p>
 <p>Args: msg Message</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.node_a.coordinate">
 <span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">coordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#coordinate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.coordinate" title="Permalink to this definition"></a></dt>
-<dd><p>Function to insert coordinates x and y from input</p>
+<dd><p>Function to insert coordinates x and y from input.</p>
 <p>Args: None</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.node_a.get_info_goal">
 <span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">get_info_goal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#get_info_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.get_info_goal" title="Permalink to this definition"></a></dt>
-<dd><p>Function which sends as response to the service Node the number of goal reached and cancelled</p>
+<dd><p>Function which sends as response to the service Node the number of goal reached and cancelled.</p>
 <p>Args: request</p>
 </dd></dl>
 
@@ -165,7 +165,7 @@ Node A additionally publishes robot’s velocity and position.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.node_a.tgt">
 <span class="sig-prename descclassname"><span class="pre">src.node_a.</span></span><span class="sig-name descname"><span class="pre">tgt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_a.html#tgt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_a.tgt" title="Permalink to this definition"></a></dt>
-<dd><p>Function aimed to publish target coordinates</p>
+<dd><p>Function aimed to publish target coordinates.</p>
 <p>Args: x, y Integers</p>
 </dd></dl>
 
@@ -176,17 +176,18 @@ Node A additionally publishes robot’s velocity and position.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.node_b.getInfoGoal">
 <span class="sig-prename descclassname"><span class="pre">src.node_b.</span></span><span class="sig-name descname"><span class="pre">getInfoGoal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_b.html#getInfoGoal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_b.getInfoGoal" title="Permalink to this definition"></a></dt>
-<dd><p>Function to connect to target service, save its response and print them</p>
+<dd><p>Function to connect to target service, save its response and print them.</p>
+<p>Args: None</p>
 </dd></dl>
 
 </div>
 <div class="section" id="module-src.node_c">
 <span id="node-c-module"></span><h1>Node C module<a class="headerlink" href="#module-src.node_c" title="Permalink to this heading"></a></h1>
-<span class="target" id="module-node_c"></span><p>Node C  subscribes to the message published by node A updating the robot velocity and the target’s distance.
-All the informations are then printed with a frequency set in the ros parrameter (in the launch file) as freq_c</p>
-<dl class="simple">
-<dt>Subscriber:</dt><dd><p>/bot_info
-/tgt</p>
+<span class="target" id="module-node_c"></span><p>Node C  subscribes to the message published by node A updating the robot velocity and the target’s distance.</p>
+<p>All the informations are then printed with a frequency set in the ros parrameter (in the launch file) as freq_c.</p>
+<dl>
+<dt>Subscriber:</dt><dd><p>/bot_info</p>
+<p>/tgt</p>
 </dd>
 <dt>Ros parameter:</dt><dd><p>freq_c</p>
 </dd>
@@ -194,14 +195,14 @@ All the informations are then printed with a frequency set in the ros parrameter
 <dl class="py function">
 <dt class="sig sig-object py" id="src.node_c.clbk_info">
 <span class="sig-prename descclassname"><span class="pre">src.node_c.</span></span><span class="sig-name descname"><span class="pre">clbk_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_c.html#clbk_info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_c.clbk_info" title="Permalink to this definition"></a></dt>
-<dd><p>Callback function to calculate distance from the target and average velocities</p>
+<dd><p>Callback function to calculate distance from the target and average velocities.</p>
 <p>Args: msg Message</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="src.node_c.clbk_tgt">
 <span class="sig-prename descclassname"><span class="pre">src.node_c.</span></span><span class="sig-name descname"><span class="pre">clbk_tgt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_c.html#clbk_tgt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_c.clbk_tgt" title="Permalink to this definition"></a></dt>
-<dd><p>Callback function to obtain target info</p>
+<dd><p>Callback function to obtain target info.</p>
 <p>Args: msg Message</p>
 </dd></dl>
 
@@ -209,10 +210,12 @@ All the informations are then printed with a frequency set in the ros parrameter
 <dt class="sig sig-object py" id="src.node_c.main">
 <span class="sig-prename descclassname"><span class="pre">src.node_c.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/node_c.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.node_c.main" title="Permalink to this definition"></a></dt>
 <dd><dl class="simple">
-<dt>Main function to:</dt><dd><p>-Initialize the node;
--Set publishing rate;
--Subscribes to the robot information and target
--Print all the informations</p>
+<dt>Main function to:</dt><dd><ul class="simple">
+<li><p>Initialize the node;</p></li>
+<li><p>Set publishing rate;</p></li>
+<li><p>Subscribes to the robot information and target;</p></li>
+<li><p>Print all the informations.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
