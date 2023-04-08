@@ -76,8 +76,9 @@
 <span class="sd">    </span>
 <span class="sd">.. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com</span>
 
-<span class="sd">This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : &lt;https://github.com/CarmineD8/assignment_2_2022&gt;.</span>
-<span class="sd">The node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it. All the position are tracked. </span>
+<span class="sd">This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : https://github.com/CarmineD8/assignment_2_2022.</span>
+<span class="sd">This node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it. </span>
+<span class="sd">All the positions inserted  are then tracked as reached or cancelled. </span>
 <span class="sd">Node A additionally publishes robot&#39;s velocity and position.</span>
 
 <span class="sd">Subscriber:</span>
@@ -85,6 +86,7 @@
 <span class="sd">	</span>
 <span class="sd">Publisher:</span>
 <span class="sd">	/tgt</span>
+<span class="sd">	</span>
 <span class="sd">	/bot_info</span>
 <span class="sd">	</span>
 <span class="sd">Server:</span>

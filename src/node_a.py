@@ -6,8 +6,9 @@
     
 .. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com
 
-This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : <https://github.com/CarmineD8/assignment_2_2022>.
-The node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it. All the position are tracked. 
+This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : https://github.com/CarmineD8/assignment_2_2022.
+This node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it. 
+All the positions inserted  are then tracked as reached or cancelled. 
 Node A additionally publishes robot's velocity and position.
 
 Subscriber:
@@ -15,6 +16,7 @@ Subscriber:
 	
 Publisher:
 	/tgt
+	
 	/bot_info
 	
 Server:

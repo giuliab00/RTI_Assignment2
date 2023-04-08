@@ -111,14 +111,15 @@
 </div>
 <div class="section" id="module-src.node_a">
 <span id="node-a-module"></span><h1>Node A module<a class="headerlink" href="#module-src.node_a" title="Permalink to this heading"></a></h1>
-<span class="target" id="module-node_a"></span><p>This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : &lt;<a class="reference external" href="https://github.com/CarmineD8/assignment_2_2022">https://github.com/CarmineD8/assignment_2_2022</a>&gt;.
-The node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it. All the position are tracked.
+<span class="target" id="module-node_a"></span><p>This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : <a class="reference external" href="https://github.com/CarmineD8/assignment_2_2022">https://github.com/CarmineD8/assignment_2_2022</a>.
+This node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it.
+All the positions inserted  are then tracked as reached or cancelled.
 Node A additionally publishes robot’s velocity and position.</p>
-<dl class="simple">
+<dl>
 <dt>Subscriber:</dt><dd><p>/odom</p>
 </dd>
-<dt>Publisher:</dt><dd><p>/tgt
-/bot_info</p>
+<dt>Publisher:</dt><dd><p>/tgt</p>
+<p>/bot_info</p>
 </dd>
 <dt>Server:</dt><dd><p>ass2/goal</p>
 </dd>
