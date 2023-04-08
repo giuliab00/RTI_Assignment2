@@ -6,9 +6,7 @@
     
 .. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com
 
-Service node
-
-
+Node B is a service node, which sends a request to the Goal Service (of Node A) and prints its response.
  
 """
 #Useful import
@@ -25,7 +23,7 @@ from nav_msgs.msg import Odometry
 
 def getInfoGoal():
 	"""
-	Function to obtain and 
+	Function to connect to target service, save its response and print them 
 	"""
 	#Wait until the service is available
 	rospy.wait_for_service("goal_info")

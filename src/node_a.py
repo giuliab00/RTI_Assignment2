@@ -6,11 +6,23 @@
     
 .. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com
 
-This is the main node of all the project. 
-It allows to set input goal coordinates.
+This is the main node of the assignment. It implements a controller for the robot in the environment available at the repository : <https://github.com/CarmineD8/assignment_2_2022>.
+The node allows the user to set input goal coordinates, which can be deleted or changed afterwards before the robot reaches it. All the position are tracked. 
+Node A additionally publishes robot's velocity and position.
 
+Subscriber:
+	/odom
+	
+Publisher:
+	/tgt
+	/bot_info
+	
+Server:
+	ass2/goal
+	
+Action Client:
+	/reaching_goal
 
- 
 """
 #Useful import
 import rospy
@@ -32,7 +44,7 @@ twist_= Twist()
 
 def coordinate():
 	"""
-	Function to take coordinate from input
+	Function to insert coordinates x and y from input
 	
 	Args: None
 	"""
@@ -57,7 +69,7 @@ def clbk_odom(msg):
 	"""
 	Callback function to publish position and velocity of the robot
 	
-    	Args: msg
+    	Args: msg Message
 	"""
 	global pub_info
 	
@@ -79,10 +91,9 @@ def clbk_odom(msg):
 #Node C  
 def tgt(x,y):
 	"""
-    	Function for publishing target coordinates
+    	Function aimed to publish target coordinates
     	
-    	Args: x
-    	      y
+    	Args: x, y Integers
 	"""
 	global pub_target
 		  	
@@ -94,7 +105,7 @@ def tgt(x,y):
 #Node B
 def get_info_goal(req):
 	"""
-	Function for service node B
+	Function which sends as response to the service Node the number of goal reached and cancelled
     	
     	Args: request
 	"""	
@@ -104,6 +115,14 @@ def get_info_goal(req):
 	return targetResponse(reach_t,canc_t)
   
 def main():
+	"""
+	Main function to:
+		- Initialize the node; 
+		- Create a new client; 
+		- Publishe the target and the information about the robot position;
+		- Subscribes to /odom;
+		- Define the service goal info.
+	"""
 	
 	#Defining global variable
 	global pub_info, reach_t, canc_t, pub_target
@@ -123,6 +142,7 @@ def main():
 	
 	#Publish (Node A)
 	pub_info = rospy.Publisher('/bot_info', Info, queue_size=1)
+	
 	#Publish (Node C)
 	pub_target = rospy.Publisher('/tgt', Point, queue_size=1)
 	

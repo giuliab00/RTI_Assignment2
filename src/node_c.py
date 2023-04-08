@@ -6,8 +6,15 @@
     
 .. moduleauthor:: Giulia Berettieri giulia.berettieri@gmail.com
 
-node
+Node C  subscribes to the message published by node A updating the robot velocity and the target's distance. 
+All the informations are then printed with a frequency set in the ros parrameter (in the launch file) as freq_c
 
+Subscriber:
+	/bot_info
+	/tgt
+	
+Ros parameter:
+	freq_c
  
 """
 #Useful import
@@ -30,7 +37,7 @@ def clbk_info(msg):
 	"""
 	Callback function to calculate distance from the target and average velocities
 	
-    	Args: msg	
+    	Args: msg Message
 	"""
 	global rx, ry, avg_vx, avg_vy, sample, rate, dist
 	
@@ -44,7 +51,7 @@ def clbk_tgt(msg):
 	"""
 	Callback function to obtain target info
 	
-    	Args: msg
+    	Args: msg Message
 	"""
 	global rx, ry
 	
@@ -52,6 +59,13 @@ def clbk_tgt(msg):
 	ry = msg.y
 	
 def main():
+	"""
+	Main function to: 
+		-Initialize the node;
+		-Set publishing rate;
+		-Subscribes to the robot information and target
+		-Print all the informations
+	"""
 
 	global rx, ry, rate, sample, avg_vx, avg_vy, dist
 	
